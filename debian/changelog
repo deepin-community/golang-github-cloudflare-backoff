@@ -1,5 +1,11 @@
-template-repository (1.0-1) unstable; urgency=medium
+golang-github-cloudflare-backoff (0.0~git20161212.647f3cd-2) unstable; urgency=medium
 
-  * Initial release
+  * Bump standards version
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Reinhard Tartler <siretart@tauware.de>  Sat, 27 Jul 2024 07:17:07 +0200
+
+golang-github-cloudflare-backoff (0.0~git20161212.647f3cd-1) unstable; urgency=medium
+
+  * Initial release (Closes: #1073810)
+
+ -- Reinhard Tartler <siretart@tauware.de>  Wed, 19 Jun 2024 06:50:44 -0400
