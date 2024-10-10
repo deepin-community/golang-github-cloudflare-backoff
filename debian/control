@@ -1,15 +1,30 @@
-Source: template-repository
-Section: unknown
+Source: golang-github-cloudflare-backoff
+Section: golang
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Maintainer: Debian Go Packaging Team <team+pkg-go@tracker.debian.org>
+Uploaders: Reinhard Tartler <siretart@tauware.de>
+Rules-Requires-Root: no
+Build-Depends: debhelper-compat (= 13),
+               dh-sequence-golang,
+               golang-any
+Testsuite: autopkgtest-pkg-go
+Standards-Version: 4.7.0
+Vcs-Browser: https://salsa.debian.org/go-team/packages/golang-github-cloudflare-backoff
+Vcs-Git: https://salsa.debian.org/go-team/packages/golang-github-cloudflare-backoff.git
+Homepage: https://github.com/cloudflare/backoff
+XS-Go-Import-Path: github.com/cloudflare/backoff
 
-Package: template-repository
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Package: golang-github-cloudflare-backoff-dev
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends}
+Description: Go implementation of "Exponential Backoff And Jitter" (library)
+ This package implements the backoff strategy described in the AWS
+ Architecture Blog article "Exponential Backoff And Jitter"
+ (http://www.awsarchitectureblog.com/2015/03/backoff.html). Essentially,
+ the backoff has an interval time.Duration; the *nth* call to backoff
+ will return an a time.Duration that is *2 n *interval*. If jitter is
+ enabled (which is the default behaviour), the duration is a random value
+ between 0 and *2 n * interval*. The backoff is configured with a maximum
+ duration that will not be exceeded; e.g., by default, the longest
+ duration returned is backoff.DefaultMaxDuration.
